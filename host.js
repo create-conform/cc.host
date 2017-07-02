@@ -9,7 +9,7 @@
 //
 // Copyright Nick Verlinden (info@createconform.com)
 //
-///////////////////////////////////////////////////////////////////////////////////////////// 
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 (function() {
     function Host() {
@@ -746,6 +746,15 @@
             return singleton;
         }
         singleton = new (Function.prototype.bind.apply(Host, arguments));
+
+        if (typeof document !== "undefined") {
+            document.documentElement.setAttribute("data-runtime", singleton.runtime);
+            document.documentElement.setAttribute("data-runtime-version", singleton.runtimeVersion);
+            document.documentElement.setAttribute("data-platform", singleton.platform);
+            document.documentElement.setAttribute("data-platform-version", singleton.platformVersion);
+            document.documentElement.setAttribute("data-platform-architecture", singleton.platformArchitecture);
+        }
+
         return singleton;
     }));
 })();
