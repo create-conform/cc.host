@@ -138,6 +138,9 @@
                 case singleton.RUNTIME_BROWSER_INTERNET_EXPLORER:
                 case singleton.RUNTIME_BROWSER_OPERA:
                 case singleton.RUNTIME_BROWSER_SAFARI:
+                case singleton.RUNTIME_NWJS:
+                case singleton.RUNTIME_ELECTRON:
+                case singleton.RUNTIME_ADOBECEP:
                     return true;
                 default:
                     return false;
