@@ -1,6 +1,6 @@
 {
   "name": "cc.host",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "title": "Host Module",
   "description": "Library that provides information about the host environment.",
   "main": "host.js"

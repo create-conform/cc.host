@@ -24,7 +24,8 @@
         this.RUNTIME_NWJS = "nw-js";
         this.RUNTIME_NODEJS = "node-js";
         this.RUNTIME_ELECTRON = "electron";
-        this.RUNTIME_JSX = "jsx";
+        this.RUNTIME_ADOBECEP = "adobe-cep";
+        this.RUNTIME_ADOBEJSX = "adobe-jsx";
         this.RUNTIME_UNKNOWN = "unknown";
         this.PLATFORM_WINDOWS = "windows";
         this.PLATFORM_LINUX = "linux";
@@ -161,6 +162,9 @@
             if (typeof window !== "undefined" && window.process && window.process.type === "renderer") {
                 return singleton.RUNTIME_ELECTRON;
             }
+            if (typeof window !== "undefined" && window.__adobe_cep__) {
+                return singleton.RUNTIME_ADOBECEP;
+            }
             if (new Function("try {return this===global;}catch(e){return false;}") && typeof process === "object" && typeof process.versions === "object" && typeof process.versions.node !== "undefined") {
                 return singleton.RUNTIME_NODEJS
             }
@@ -216,7 +220,7 @@
                 return singleton.RUNTIME_BROWSER;
             }
             if (typeof JSXGlobals !== "undefined") {
-                return singleton.RUNTIME_JSX;
+                return singleton.RUNTIME_ADOBEJSX;
             }
             return singleton.RUNTIME_UNKNOWN;
         }
@@ -556,7 +560,7 @@
                         break;
                 }
             }
-            else if (runtime == singleton.RUNTIME_JSX) {
+            else if (runtime == singleton.RUNTIME_ADOBEJSX) {
                 //TODO
                 //system.osName sometimes returns an empty string
                 //system.osVersion ex. returns "Build Number: 7601 Service Pack 1"
