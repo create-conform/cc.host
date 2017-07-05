@@ -148,7 +148,7 @@
         };
         this.isRuntimeNodeFamily = function () {
             switch (singleton.runtime) {
-                case singleton.RUNTIME_NODE:
+                case singleton.RUNTIME_NODEJS:
                 case singleton.RUNTIME_NWJS:
                 case singleton.RUNTIME_ELECTRON:
                 case singleton.RUNTIME_ADOBECEP:
