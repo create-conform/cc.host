@@ -260,6 +260,11 @@
                     return process.versions["node-webkit"];
                 case singleton.RUNTIME_ELECTRON:
                     return process.versions["electron"];
+                case singleton.RUNTIME_ADOBECEP:
+                    if (typeof window.__adobe_cep__.getHostEnvironment == "function") {
+                        var env = window.__adobe_cep__.getHostEnvironment();
+                        return env.appId + " " + env.appVersion;
+                    }
             }
 
             return singleton.VERSION_UNKNOWN;
