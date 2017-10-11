@@ -1,7 +1,9 @@
 {
   "name": "cc.host",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "title": "Host Module",
   "description": "Library that provides information about the host environment.",
-  "main": "host.js"
+  "pkx" : {
+    "main": "host.js"
+  }
 }
